@@ -89,7 +89,7 @@ export default function SEOSEMPage() {
                   description: "We continuously monitor performance and refine our approach for optimal results.",
                 },
               ].map((step, index) => (
-                <div key={index} className="bg-[#2A3F54] p-6 rounded-lg">
+                <div key={index} className="bg-white p-6 rounded-lg shadow-2xl">
                   <h3 className="text-xl font-semibold mb-4">{step.title}</h3>
                   <p>{step.description}</p>
                 </div>
