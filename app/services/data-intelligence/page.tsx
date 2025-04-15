@@ -64,7 +64,7 @@ export default function DataIntelligencePage() {
                 </ul>
               </div>
               <div>
-                <img src="/images/data-intelligence.jpg" alt="Data Intelligence" className="rounded-lg shadow-2xl" />
+                <img src="/images/data-intelligence.webp" alt="Data Intelligence" className="rounded-lg shadow-2xl" />
               </div>
             </div>
           </div>

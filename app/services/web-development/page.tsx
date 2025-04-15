@@ -47,7 +47,7 @@ export default function WebDevelopmentPage() {
                 </ul>
               </div>
               <div>
-                <img src="/images/web-development.jpg" alt="Web Development" className="rounded-lg shadow-2xl" />
+                <img src="/images/web-development.webp" alt="Web Development" className="rounded-lg shadow-2xl" />
               </div>
             </div>
           </div>

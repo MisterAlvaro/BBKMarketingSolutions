@@ -61,7 +61,7 @@ export default function BrandDevelopmentPage() {
                 </ul>
               </div>
               <div>
-                <img src="/images/brand-development.jpg" alt="Brand Development" className="rounded-lg shadow-2xl" />
+                <img src="/images/brand-development.webp" alt="Brand Development" className="rounded-lg shadow-2xl" />
               </div>
             </div>
           </div>

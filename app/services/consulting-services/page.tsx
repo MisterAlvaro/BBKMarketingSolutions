@@ -61,7 +61,7 @@ export default function ConsultingServicesPage() {
                 </ul>
               </div>
               <div>
-                <img src="/images/consulting-services.jpg" alt="Consulting Services" className="rounded-lg shadow-2xl" />
+                <img src="/images/consulting-services.webp" alt="Consulting Services" className="rounded-lg shadow-2xl" />
               </div>
             </div>
           </div>

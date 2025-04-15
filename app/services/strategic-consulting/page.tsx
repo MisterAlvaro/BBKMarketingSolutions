@@ -61,7 +61,7 @@ export default function StrategicConsultingPage() {
                 </ul>
               </div>
               <div>
-                <img src="/images/strategic-consulting.jpg" alt="Strategic Consulting" className="rounded-lg shadow-2xl" />
+                <img src="/images/strategic-consulting.webp" alt="Strategic Consulting" className="rounded-lg shadow-2xl" />
               </div>
             </div>
           </div>

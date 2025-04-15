@@ -61,7 +61,7 @@ export default function SEOSEMPage() {
                 </ul>
               </div>
               <div>
-                <img src="/images/seo-sem.jpg" alt="SEO and SEM" className="rounded-lg shadow-2xl" />
+                <img src="/images/seo-sem.webp" alt="SEO and SEM" className="rounded-lg shadow-2xl" />
               </div>
             </div>
           </div>

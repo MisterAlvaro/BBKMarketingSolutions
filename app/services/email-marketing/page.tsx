@@ -60,7 +60,7 @@ export default function EmailMarketingPage() {
                 </ul>
               </div>
               <div>
-                <img src="/images/email-marketing.jpg" alt="Email Marketing" className="rounded-lg shadow-2xl" />
+                <img src="/images/email-marketing.webp" alt="Email Marketing" className="rounded-lg shadow-2xl" />
               </div>
             </div>
           </div>

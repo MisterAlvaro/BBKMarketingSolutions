@@ -60,7 +60,7 @@ export default function SocialMediaPage() {
                 </ul>
               </div>
               <div>
-                <img src="/images/social-media.jpg" alt="Social Media Mastery" className="rounded-lg shadow-2xl" />
+                <img src="/images/social-media.webp" alt="Social Media Mastery" className="rounded-lg shadow-2xl" />
               </div>
             </div>
           </div>
