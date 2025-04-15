@@ -2,7 +2,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight, ArrowRight } from "lucide-react"
+import Navbar from "../components/Navbar"
 
 export default function ServicesPage() {
   const services = [
@@ -58,26 +59,7 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white text-[#231934]">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-90 backdrop-blur-md shadow-lg">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold">BBK Marketing Solutions</div>
-          <nav className="hidden md:flex space-x-6">
-            <Link href="/" className="hover:text-[#e34c0d] transition-colors">
-              Home
-            </Link>
-            <Link href="/about" className="hover:text-[#e34c0d] transition-colors">
-              About Us
-            </Link>
-            <Link href="/services" className="hover:text-[#e34c0d] transition-colors">
-              Services
-            </Link>
-            <Link href="/contact" className="hover:text-[#e34c0d] transition-colors">
-              Contact
-            </Link>
-          </nav>
-          <Button className="bg-[#cc2c00] hover:bg-[#e34c0d] text-white">Get Started</Button>
-        </div>
-      </header>
+      <Navbar />
 
       <main className="pt-24">
         <section className="py-20">
@@ -101,7 +83,7 @@ export default function ServicesPage() {
                     <p className="text-white text-sm">{service.description}</p>
                   </CardContent>
                   <CardFooter className="absolute z-10 bottom-4 left-4 right-4">
-                    <Button className="w-full bg-[#231934] text-white hover:bg-opacity-90" asChild>
+                    <Button className="w-full bg-[#041334] hover:bg-[#17223A] text-white" asChild>
                       <Link href={service.link}>
                         View Details <ChevronRight className="ml-2" />
                       </Link>
@@ -119,7 +101,7 @@ export default function ServicesPage() {
             <p className="text-xl mb-8">
               Contact us for a free consultation and we'll help you find the best solution for your business.
             </p>
-            <Button className="bg-[#cc2c00] hover:bg-[#e34c0d] text-white text-lg px-8 py-3" asChild>
+            <Button className="bg-[#fb6404] hover:bg-[#fb4702] text-white text-lg px-8 py-3" asChild>
               <Link href="/contact">Request Free Consultation</Link>
             </Button>
           </div>

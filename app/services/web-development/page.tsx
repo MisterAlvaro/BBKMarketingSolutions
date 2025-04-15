@@ -1,30 +1,13 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import Navbar from "../../components/Navbar"
 import { Check } from "lucide-react"
 
 export default function WebDevelopmentPage() {
   return (
     <div className="min-h-screen bg-white text-[#231934]">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-90 backdrop-blur-md shadow-lg">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold">BBK Marketing Solutions</div>
-          <nav className="hidden md:flex space-x-6">
-            <Link href="/" className="hover:text-[#e34c0d] transition-colors">
-              Home
-            </Link>
-            <Link href="/about" className="hover:text-[#e34c0d] transition-colors">
-              About Us
-            </Link>
-            <Link href="/services" className="hover:text-[#e34c0d] transition-colors">
-              Services
-            </Link>
-            <Link href="/contact" className="hover:text-[#e34c0d] transition-colors">
-              Contact
-            </Link>
-          </nav>
-          <Button className="bg-[#cc2c00] hover:bg-[#e34c0d] text-white">Get Started</Button>
-        </div>
-      </header>
+      <Navbar />
 
       <main className="pt-24">
         <section className="py-20">

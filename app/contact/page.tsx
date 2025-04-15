@@ -1,32 +1,75 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Phone, Mail, MapPin } from "lucide-react"
+import { Phone, Mail, MapPin, Home, Users, Briefcase, MessageSquare, Menu, X } from "lucide-react"
+import { useState } from "react"
+import { toast } from "sonner"
+import { Toaster } from "sonner"
+import Navbar from "../components/Navbar"
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  })
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        toast.success("Message sent successfully!", {
+          description: "We will contact you soon.",
+          duration: 5000,
+        })
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        })
+      } else {
+        toast.error("Failed to send message", {
+          description: "Please try again later.",
+          duration: 5000,
+        })
+      }
+    } catch (error) {
+      toast.error("Failed to send message", {
+        description: "Please try again later.",
+        duration: 5000,
+      })
+    }
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
   return (
     <div className="min-h-screen bg-white text-[#231934]">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-90 backdrop-blur-md shadow-lg">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold">BBK Marketing Solutions</div>
-          <nav className="hidden md:flex space-x-6">
-            <Link href="/" className="hover:text-[#e34c0d] transition-colors">
-              Home
-            </Link>
-            <Link href="/about" className="hover:text-[#e34c0d] transition-colors">
-              About Us
-            </Link>
-            <Link href="/services" className="hover:text-[#e34c0d] transition-colors">
-              Services
-            </Link>
-            <Link href="/contact" className="hover:text-[#e34c0d] transition-colors">
-              Contact
-            </Link>
-          </nav>
-          <Button className="bg-[#cc2c00] hover:bg-[#e34c0d] text-white">Get Started</Button>
-        </div>
-      </header>
+      <Toaster position="top-right" richColors />
+      <Navbar />
 
       <main className="pt-24">
         <section className="py-20">
@@ -34,19 +77,56 @@ export default function ContactPage() {
             <h1 className="text-4xl font-bold mb-12 text-center">Contact Us</h1>
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <form className="space-y-6">
-                  <Input placeholder="Name" />
-                  <Input placeholder="Email" type="email" />
-                  <Input placeholder="Phone" type="tel" />
-                  <select className="w-full p-2 bg-white border border-gray-600 rounded-md">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <Input 
+                    name="name"
+                    placeholder="Name" 
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                  <Input 
+                    name="email"
+                    placeholder="Email" 
+                    type="email" 
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                  <Input 
+                    name="phone"
+                    placeholder="Phone" 
+                    type="tel" 
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                  />
+                  <select 
+                    name="service"
+                    className="w-full p-2 bg-white border border-gray-600 rounded-md"
+                    value={formData.service}
+                    onChange={handleChange}
+                    required
+                  >
                     <option value="">Select your current challenge</option>
-                    <option value="seo">Improve SEO</option>
-                    <option value="social">Social media management</option>
-                    <option value="web">Web development</option>
-                    <option value="analytics">Data analysis</option>
+                    <option value="web-development">Custom website creation services</option>
+                    <option value="data-intelligence">Data analysis service</option>
+                    <option value="social-media">Social media management</option>
+                    <option value="seo-sem">Digital Marketing Services</option>
+                    <option value="email-marketing">Traditional Marketing Services</option>
+                    <option value="strategic-consulting">Research and Analysis Services</option>
+                    <option value="brand-development">Brand Development Services</option>
+                    <option value="consulting-services">Consulting Services</option>
                   </select>
-                  <Textarea placeholder="Message" rows={4} />
-                  <Button type="submit" className="w-full bg-[#cc2c00] hover:bg-[#e34c0d] text-white">
+                  <Textarea 
+                    name="message"
+                    placeholder="Message" 
+                    rows={4} 
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
+                  <Button type="submit" className="w-full bg-[#fb6404] hover:bg-[#fb4702] text-white">
                     Send Message
                   </Button>
                 </form>
@@ -56,15 +136,15 @@ export default function ContactPage() {
                   <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
                   <ul className="space-y-4">
                     <li className="flex items-center">
-                      <Phone className="mr-2 text-[#e34c0d]" />
+                      <Phone className="mr-2 text-[#fb6404]" />
                       <span>+1 (555) 123-4567</span>
                     </li>
                     <li className="flex items-center">
-                      <Mail className="mr-2 text-[#e34c0d]" />
-                      <span>info@bbkmarketingsolutions.com</span>
+                      <Mail className="mr-2 text-[#fb6404]" />
+                      <span>bbkmarketingsolutions@gmail.com</span>
                     </li>
                     <li className="flex items-center">
-                      <MapPin className="mr-2 text-[#e34c0d]" />
+                      <MapPin className="mr-2 text-[#fb6404]" />
                       <span>123 Main St, Suite 456, New York, NY 10001</span>
                     </li>
                   </ul>
@@ -125,4 +205,5 @@ export default function ContactPage() {
     </div>
   )
 }
+
 

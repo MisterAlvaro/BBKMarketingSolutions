@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { ArrowRight, ChevronRight, MessageCircle, Phone } from "lucide-react"
-import { Html, Head, Main, NextScript } from "next/document";
+import Navbar from "./components/Navbar";
+
 
 export default function Home() {
   const featuredServices = [
@@ -49,28 +50,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white text-[#231934]">
-      <header className="fixed shadow-lg top-0 left-0 right-0 z-50 bg-white bg-opacity-90 backdrop-blur-md ">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="">
-            <img src="/images/bbk_logo.webp" className="h-12 w-auto"></img>
-          </div>
-          <nav className="hidden md:flex space-x-6">
-            <Link href="/" className="hover:text-[#e34c0d] transition-colors">
-              Home
-            </Link>
-            <Link href="/about" className="hover:text-[#e34c0d] transition-colors">
-              About Us
-            </Link>
-            <Link href="/services" className="hover:text-[#e34c0d] transition-colors">
-              Services
-            </Link>
-            <Link href="/contact" className="hover:text-[#e34c0d] transition-colors">
-              Contact
-            </Link>
-          </nav>
-          <Button className="bg-[#cc2c00] hover:bg-[#e34c0d] text-white">Get Started</Button>
-        </div>
-      </header>
+      <Navbar />
 
       <main>
         <section id="home" className="pt-32 pb-20 bg-[url('/images/banner_1.webp')]">
@@ -78,7 +58,7 @@ export default function Home() {
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center">Your Success is Our Priority</h1>
             <p className="text-xl md:text-2xl mb-8 text-center">Transforming Data into Winning Strategies</p>
             <div className="flex justify-center">
-              <Button className="bg-[#e34c0d] hover:bg-[#cc2c00] text-white text-lg px-8 py-3" asChild>
+              <Button className="bg-[#fb6404] hover:bg-[#fb4702] text-white text-lg px-8 py-3" asChild>
                 <Link href="/services">
                   Discover How <ArrowRight className="ml-2" />
                 </Link>
@@ -93,7 +73,7 @@ export default function Home() {
               We boost your digital presence with 360° solutions: from web development to predictive analytics
             </p>
             <div className="flex justify-center">
-              <Button className="bg-[#cc2c00] hover:bg-[#e34c0d] text-white" asChild>
+              <Button className="bg-[#fb6404] hover:bg-[#fb4702] text-white" asChild>
                 <Link href="/contact">Request a Free Quote</Link>
               </Button>
             </div>
@@ -103,7 +83,15 @@ export default function Home() {
         <section className="py-20 items-right">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center gap-4">
-              <iframe src=""></iframe>
+              <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/-BrL752WMRM" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
         </section>
@@ -129,7 +117,7 @@ export default function Home() {
                     <p className="text-white text-sm">{service.description}</p>
                   </CardContent>
                   <CardFooter className="absolute z-10 bottom-4 left-4 right-4">
-                    <Button className="w-full bg-[#231934] text-white hover:bg-opacity-90" asChild>
+                    <Button className="w-full bg-[#041334] hover:bg-[#17223A] text-white" asChild>
                       <Link href={service.link}>
                         View Details <ChevronRight className="ml-2" />
                       </Link>
@@ -139,7 +127,7 @@ export default function Home() {
               ))}
             </div>
             <div className="mt-12 text-center">
-              <Button className="bg-[#cc2c00] hover:bg-[#e34c0d] text-white" asChild>
+              <Button className="bg-[#fb6404] hover:bg-[#fb4702] text-white" asChild>
                 <Link href="/services">View All Services</Link>
               </Button>
             </div>
@@ -172,13 +160,13 @@ export default function Home() {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl font-bold mb-8">Ready to Multiply Your Sales?</h2>
             <div className="flex justify-center gap-4">
-              <Button className="bg-[#231934] text-white hover:bg-[rgb(93,90,100)]" asChild>
+              <Button className="bg-[#041334] text-white hover:bg-[#17223A]" asChild>
                 <Link href="/contact">
-                  Schedule Demo <Phone className="ml-2 text-[#e34c0d]" />
+                  Schedule Demo <Phone className="ml-2 text-[#fb4702]" />
                 </Link>
               </Button>
-              <Button className="bg-[#231934] text-white hover:bg-[rgb(93,90,100)]">
-                Live Chat <MessageCircle className="ml-2 text-[#e34c0d]" />
+              <Button className="bg-[#041334] hover:bg-[#17223A] text-white">
+                Live Chat <MessageCircle className="ml-2 text-[#fb4702]" />
               </Button>
             </div>
           </div>
@@ -194,7 +182,7 @@ export default function Home() {
             </div>
             <div className="flex space-x-4 items-center">
               {redessociales.map((red, index) => (
-                <a key={index} href={`${red.link}`} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#e34c0d] transition-colors">
+                <a key={index} href={`${red.link}`} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#fb4702] transition-colors">
                 <span className="sr-only">{red.name}</span>
                 <div>
                   <img src={`/images/icons/${red.name}.webp`} className="w-[20px]"></img>
@@ -212,12 +200,12 @@ export default function Home() {
             <nav className="mt-4 md:mt-0">
               <ul className="flex space-x-4">
                 <li>
-                  <a href="#legal" className="text-gray-400 hover:text-[#e34c0d] transition-colors">
+                  <a href="#legal" className="text-gray-400 hover:text-[#fb4702] transition-colors">
                     Legal Notice
                   </a>
                 </li>
                 <li>
-                  <a href="#cookies" className="text-gray-400 hover:text-[#e34c0d] transition-colors">
+                  <a href="#cookies" className="text-gray-400 hover:text-[#fb4702] transition-colors">
                     Cookie Policy
                   </a>
                 </li>
