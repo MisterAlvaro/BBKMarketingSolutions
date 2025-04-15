@@ -137,15 +137,11 @@ export default function ContactPage() {
                   <ul className="space-y-4">
                     <li className="flex items-center">
                       <Phone className="mr-2 text-[#fb6404]" />
-                      <span>+1 (555) 123-4567</span>
+                      <span>+1 (786) 962-9328</span>
                     </li>
                     <li className="flex items-center">
                       <Mail className="mr-2 text-[#fb6404]" />
                       <span>bbkmarketingsolutions@gmail.com</span>
-                    </li>
-                    <li className="flex items-center">
-                      <MapPin className="mr-2 text-[#fb6404]" />
-                      <span>123 Main St, Suite 456, New York, NY 10001</span>
                     </li>
                   </ul>
                 </div>
